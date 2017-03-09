@@ -20,5 +20,6 @@ server.use(bodyParser.urlencoded({ extended: true }))
 // Routes
 
 server.get('/', index.main)
-server.get('/dogs', index.get)
+server.get('/dogs', index.allDogs)
 server.get('/add-animal', index.add)
+// server.get('profile/:id'*******)
