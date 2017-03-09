@@ -21,3 +21,4 @@ server.use(bodyParser.urlencoded({ extended: true }))
 
 server.get('/', index.main)
 server.get('/dogs', index.get)
+server.get('/add-animal', index.add)

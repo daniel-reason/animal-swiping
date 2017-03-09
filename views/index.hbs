@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EDA Phase 1 Express Boilerplate</title>
+    <meta charset="UTF-8">
+    <title>Pet Tinder</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
   </head>
+
   <body>
+    <a href="/">Return to Homepage</a>
     <ul>
-    {{#each dogs}}
-      <li>{{name}} : {{age}}, {{breed}}, {{size}} <img src="{{picture}}" alt="Whoops..!"></li>
-    {{/each}}
+      {{#each dogs}}
+        <p>{{name}} : {{age}}, {{breed}}, {{size}}<br>
+        <img src="{{picture}}" alt="Whoops..!"></p>
+      {{/each}}
     </ul>
   </body>
 </html>

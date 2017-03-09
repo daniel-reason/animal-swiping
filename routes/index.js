@@ -4,13 +4,13 @@ var db = require('../db')
 
 module.exports = {
   get: get,
-  main: main
+  main: main,
+  add: add
 }
 
 function main (req, res) {
   res.sendfile('views/main.html')
 }
-
 
 function get (req, res) {
   db.getDogs()
@@ -20,4 +20,8 @@ function get (req, res) {
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
+}
+
+function add (req, res) {
+  res.sendfile('views/add-animal.html')
 }
