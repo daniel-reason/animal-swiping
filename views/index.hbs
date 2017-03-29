@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
     <title>Pet Tinder</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <a href="/">Return Home</a>
-    <form class="selecting-form" action="/find-a-dog" method="get">
-      <ul>
+    <a class="link" href="/">Return Home</a>
+    <form class="selecting-form" id="dog-form" action="/find-a-dog" method="get">
+      <ul class="info">
         {{#each dogs}}
-          <p><{{name}} : {{age}}, {{breed}}, {{size}}<br>
           <a href="#"><img src="{{picture}}" alt="Whoops..!"></a><br>
+          <p>{{name}} : Is a {{age}} old {{breed}}. Size: {{size}}<br><br>
           Adopt this Doggo?<br><br>
           <button type="submit" class="yes-no" id="no-button">No</button>
-          <button type="submit" class="yes-no" id="yes-button">Yes</button></p><br>
+          <button type="button" onclick="isMatch()" class="yes-no" id="yes-button">Yes</button></p><br>
         {{/each}}
       </ul>
     </form>
+    <script>
+      function isMatch(ev) {
+        alert('It\'s a match!')
+        document.getElementById('dog-form').submit()
+      }
+    </script>
   </body>
 </html>

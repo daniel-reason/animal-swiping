@@ -4,14 +4,9 @@ var db = require('../db')
 
 module.exports = {
   allDogs: allDogs,
-  main: main,
-  add: add,
   match: match
 }
 
-function main (req, res) {
-  res.sendfile('views/main.html')
-}
 
 function allDogs (req, res) {
   db.getDogs()
@@ -32,8 +27,4 @@ function match (req, res) {
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
-}
-
-function add (req, res) {
-  res.sendfile('views/add-animal.html')
 }
