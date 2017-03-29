@@ -8,12 +8,17 @@
   </head>
 
   <body>
-    <a href="/">Return to Homepage</a>
-    <ul>
-      {{#each dogs}}
-        <p>{{name}} : {{age}}, {{breed}}, {{size}}<br>
-        <img src="{{picture}}" alt="Whoops..!"></p>
-      {{/each}}
-    </ul>
+    <a href="/">Return Home</a>
+    <form class="selecting-form" action="/find-a-dog" method="get">
+      <ul>
+        {{#each dogs}}
+          <p><{{name}} : {{age}}, {{breed}}, {{size}}<br>
+          <a href="#"><img src="{{picture}}" alt="Whoops..!"></a><br>
+          Adopt this Doggo?<br><br>
+          <button type="submit" class="yes-no" id="no-button">No</button>
+          <button type="submit" class="yes-no" id="yes-button">Yes</button></p><br>
+        {{/each}}
+      </ul>
+    </form>
   </body>
 </html>
