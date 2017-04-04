@@ -7,7 +7,7 @@
     "knex": "knex",
     "dev": "nodemon index",
     "start": "node index",
-    "debug": "node-debug index.js",
+    "debug": "node --inspect --debug-brk index",
     "test": "ava"
   },
   "repository": {
@@ -27,13 +27,36 @@
   "devDependencies": {
     "ava": "^0.18.0",
     "nodemon": "^1.11.0",
-    "sqlite3": "^3.1.8"
+    "sqlite3": "^3.1.8",
+    "eslint": "^3.14.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "supertest": "^2.0.1"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
-    "express": "^4.14.1",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "connect-session-knex": "^1.3.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "express-force-ssl": "^0.3.2",
     "express-handlebars": "^3.0.0",
+    "express-jwt": "^5.1.0",
+    "express-session": "^1.15.0",
+    "jsonwebtoken": "^7.2.1",
     "knex": "^0.12.6",
-    "router-express": "^1.5.2"
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "router-express": "^1.5.2",
+    "sodium": "^2.0.1"
+  },
+  "ava": {
+    "require": [
+      "dotenv/config"
+    ]
   }
 }

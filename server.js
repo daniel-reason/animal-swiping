@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser')
 const express = require('express')
 const flash = require('connect-flash')
 const hbs = require('express-handlebars')
@@ -10,14 +11,6 @@ const users = require('./lib/users')
 const session = require('./lib/session')
 
 const indexRoutes = require('./routes')
-
-
-// var path = require('path')
-// var express = require('express')
-var bodyParser = require('body-parser')
-// var hbs = require('express-handlebars')
-
-var index = require('./routes/index')
 
 var server = express()
 
@@ -38,11 +31,11 @@ server.use(session)
 server.use(flash())
 server.use(passport.initialize())
 server.use(passport.session())
-server.use('/', indexRoutes)
 // Routes
 
-server.get('/dogs', index.allDogs)
-server.get('/find-a-dog', index.match)
+server.use('/', indexRoutes.router)
+server.get('/dogs', indexRoutes.allDogs)
+server.get('/find-a-dog', indexRoutes.match)
 
 // server.get('profile/:id'*******)
 

@@ -2,9 +2,16 @@ const bodyParser = require('body-parser')
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
 const express = require('express')
 const passport = require('passport')
+const users = require('../lib/users')
 
 const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: false }))
+
+const db = require('../db')
+
+router.get('/login', (req, res) => {
+  res.render('login', { flash: req.flash('error') })
+})
 
 router.post('/login',
   passport.authenticate('local', {
@@ -46,6 +53,7 @@ function register (req, res, next) {
       // req.login() can be used to automatically log the user in after registering
       users.create(req.body.username, req.body.password)
         .then(() => res.redirect('/login'))
+        .catch((err) => console.log(err))
     })
     .catch(() => next())
 }
@@ -56,9 +64,7 @@ function registerFail (req, res) {
 }
 
 //Beginning of original code
-// var express = require('express')
 
-var db = require('../db')
 
 module.exports = {
   allDogs: allDogs,
